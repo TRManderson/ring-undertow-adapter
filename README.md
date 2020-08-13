@@ -66,6 +66,10 @@ containing a `:undertow/websocket` containing the configuration map:
     :on-close   (fn [{:keys [channel ws-channel]}] (println "WS closeed!"))}})
 ```
 
+If headers are provided in the map returned from the handler function they are included in the
+response to the WebSocket upgrade request. Handlers relevant to the WebSocket handhsake (eg
+`Connection`) will be overwritten so that the WebSocket handhsake completes correctly.
+
 ### Middleware
 
 Undertow adapter provides session middleware using Undertow session. 
